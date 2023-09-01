@@ -1,18 +1,20 @@
-#' @title Tabulate Stopping Rule
+#' @title Tabulate Stopping Rule (Binary Data)
 #' @description Summarize a stopping rule in a condensed tabular format
 #'
-#' @param rule A matrix with two columns: the sample sizes at which sequential testing is performed, and their corresponding rejection boundaries
+#' @param x A 'rule.bin' object calculated by \code{calc.rule.bin()} function
 #'
 #' @return A matrix with two columns: the ranges of evaluable patients, and corresponding rejection boundaries for these ranges
 #' @export
 #'
 #' @examples
-#' # Binomial Pocock test in 50 patient cohort at 10% level, expected toxicity rate of 20%
-#' poc_rule = calc.rule(ns=1:50,p0=0.20,type="Pocock",alpha=0.10)
+#' # Binomial Pocock test in 50 patient cohort at 10% level, expected toxicity probability of 20%
+#' poc_rule = calc.rule.bin(ns=1:50,p0=0.20,alpha=0.10,type="Pocock")
 #'
 #' # Tabulate stopping boundary
-#' table.rule(poc_rule)
-table.rule = function(rule) {
+#' table.rule.bin(poc_rule)
+
+table.rule.bin = function(x) {
+  rule = x$Rule
   n = max(rule[,1])
   idx = NULL
   rule = rule[rule[,2]<=rule[,1],] # Find rows where rejection can happen
