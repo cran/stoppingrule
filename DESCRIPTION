@@ -1,7 +1,7 @@
 Package: stoppingrule
 Type: Package
 Title: Create and Evaluate Stopping Rules for Safety Monitoring
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: c(person(given = c("Michael", "J."),family = "Martens",
                       role = c("aut", "cre"),email = "mmartens@mcw.edu"),
                person(given = "Qinghua",family = "Lian",role = "aut"),
@@ -11,11 +11,11 @@ Description: Provides functions for creating, displaying, and evaluating stoppin
 Imports: stats, utils, graphics, pracma, matrixStats
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2024-09-14 21:44:40 UTC; mmartens
+Packaged: 2024-12-06 00:06:13 UTC; mmartens
 Author: Michael J. Martens [aut, cre],
   Qinghua Lian [aut],
   Brent R. Logan [ctb]
 Repository: CRAN
-Date/Publication: 2024-09-14 22:10:02 UTC
+Date/Publication: 2024-12-06 00:40:02 UTC
