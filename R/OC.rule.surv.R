@@ -26,7 +26,7 @@
 #' @export
 #'
 #' @examples
-#' poc_rule = calc.rule.surv(n=50,p0=0.20,alpha=0.10,type="Pocock",tau=100)
+#'\dontrun{ poc_rule = calc.rule.surv(n=50,p0=0.20,alpha=0.10,type="Pocock",tau=100)
 #' gp_rule = calc.rule.surv(n=50,p0=0.20,alpha=0.10,type="GP",tau=60,param=c(1,1000))
 #' OC.rule.surv(rule=poc_rule,ps=seq(0.2,0.4,0.05),MC=0)
 #' OC.rule.surv(rule=gp_rule,ps=seq(0.2,0.4,0.05),MC=0)
@@ -43,13 +43,13 @@
 #' gp_rule = calc.rule.surv(n=46,p0=0.15,alpha=0.10,type="GP",tau=100,
 #'                           param=11.5*c(-log(1-0.15),100))
 #' OC.rule.surv(rule=gp_rule,ps=ps,MC=1000,A=1095)
-#'
+#' }
 
 OC.rule.surv = function(rule,ps,MC,A,s=1){
   if(MC>=0) {
     tab = matrix(0,nrow=length(ps),ncol=5-2*I(MC==0))
     for(i in 1:length(ps)) {
-    op = opchars.surv(rule,ps[i],MC,A,s=1)
+    op = opchars.surv(rule,ps[i],MC,A,s)
     if(MC==0) {
       tab[i,] = c(ps[i],op$power,op$ED)
       colnames(tab) = c('p',"Reject Prob", "E(Events)")
